@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My trips — RailYatri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">R</span><span>RailYatri</span></a>
+    <nav>
+      <a href="book.html">Book ticket</a>
+      <a href="track.html">Track train</a>
+      <a href="pnr.html">PNR status</a>
+      <a class="active" href="trips.html">My trips</a>
+      <a href="help.html">Help</a>
+    </nav>
+    <button class="profile">Sign in <span>→</span></button>
+  </header>
+
+  <main class="page">
+    <div class="page-heading">
+      <p class="eyebrow">YOUR TRAVEL SPACE</p>
+      <h1>Trips in one <em>place.</em></h1>
+      <p>Find upcoming journeys, past bookings, and useful trip actions.</p>
+    </div>
+    <section class="trip-card">
+      <div class="trip-top">
+        <div><p class="eyebrow">UPCOMING · 04 SEP 2026</p><h2>New Delhi <span>→</span> Mumbai Central</h2><p>12952 · Mumbai Rajdhani · AC 3 Tier</p></div>
+        <span class="status">Confirmed</span>
+      </div>
+      <div class="trip-meta"><span><b>Departure</b>16:55 · New Delhi</span><span><b>Arrival</b>08:35 · Mumbai Central</span><span><b>Coach & seat</b>B4 · 28</span></div>
+      <div class="trip-actions">
+        <a class="outline-link" href="track.html">Track this train</a>
+        <a class="outline-link" href="pnr.html">View PNR status</a>
+        <button class="profile">View ticket →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="index.html"><span class="brand-mark">R</span><span>RailYatri</span></a>
+    <span>Prototype experience · Designed for calmer travel</span>
+    <span>© 2026</span>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
