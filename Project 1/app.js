@@ -52,14 +52,14 @@ function setupArrivalReminder() {
   const updateReminderUI = (rem) => {
     if (rem && rem.active) {
       reminderBtn.classList.add('active-reminder');
-      reminderBtn.innerHTML = `🔔 Reminder set: ${rem.stationName} (${rem.minutes}m prior) <span style="text-decoration:underline; margin-left:4px;">Edit ✎</span>`;
+      reminderBtn.innerHTML = `<span>🔔</span> Reminder Active: ${rem.stationName} (${rem.minutes}m) <span style="text-decoration:underline; margin-left:4px;">Edit ✎</span>`;
       if (alertBox) {
         alertBox.className = 'alert reminder-active';
         alertBox.innerHTML = `<b>🔔</b><span>Wake-up alarm active: Alert at ${rem.alertTime} (${rem.minutes} min before ${rem.stationName}).</span>`;
       }
     } else {
       reminderBtn.classList.remove('active-reminder');
-      reminderBtn.innerHTML = `Set arrival reminder →`;
+      reminderBtn.innerHTML = `<span>⏰</span> Set arrival reminder ➔`;
       if (alertBox) {
         alertBox.className = 'alert';
         alertBox.innerHTML = `<b>✓</b><span>No disruptions reported on this route.</span>`;

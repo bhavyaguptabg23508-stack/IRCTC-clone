@@ -2215,13 +2215,39 @@
   background: #e8f1fd;
   color: #174998;
 }
-.text-action.active-reminder {
-  color: #c06500;
-  font-weight: 700;
+.reminder-action-btn {
+  margin-top: 14px;
+  width: 100%;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #edf4fe;
+  border: 1px solid #c3d7f5;
+  border-radius: 6px;
+  color: #174998;
+  font: 700 12px "DM Sans", sans-serif;
+  cursor: pointer;
+  transition: all 0.18s ease;
 }
+.reminder-action-btn:hover {
+  background: #174998;
+  color: #ffffff;
+  border-color: #174998;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(23, 73, 152, 0.15);
+}
+.reminder-action-btn.active-reminder {
+  background: #fff8e8;
+  border-color: #f6c631;
+  color: #8c5b05;
+}
+.reminder-action-btn.active-reminder:hover {
+  background: #fae6b2;
+  color: #633f00;
+}
+
 .alert.reminder-active {
   background: #fff8e8;
   border: 1px solid #fae1a8;
@@ -2246,8 +2272,23 @@
   border-color: #694d1b;
   color: #ffd685;
 }
-:root[data-theme="dark"] .text-action.active-reminder {
-  color: #ffd166;
+:root[data-theme="dark"] .reminder-action-btn {
+  background: #172d50;
+  border-color: #38598a;
+  color: #d1e2ff;
+}
+:root[data-theme="dark"] .reminder-action-btn:hover {
+  background: #254677;
+  color: #ffffff;
+}
+:root[data-theme="dark"] .reminder-action-btn.active-reminder {
+  background: #392b12;
+  border-color: #ffd166;
+  color: #ffd685;
+}
+:root[data-theme="dark"] .reminder-action-btn.active-reminder:hover {
+  background: #4d3815;
+  color: #ffd685;
 }
 
 /* Help & Support Center Styles */
