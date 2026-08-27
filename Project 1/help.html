@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Help — RailYatri</title>
+  <title>Help & 24x7 Support — RailYatri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -16,23 +16,110 @@
       <a href="book.html">Book ticket</a>
       <a href="track.html">Track train</a>
       <a href="pnr.html">PNR status</a>
+      <a href="food.html">Food on train</a>
       <a href="trips.html">My trips</a>
       <a class="active" href="help.html">Help</a>
     </nav>
-    <button class="profile">Sign in <span>→</span></button>
+    <button class="profile" id="signInBtn">Sign in <span>→</span></button>
   </header>
+
+  <!-- Sign-In Modal -->
+  <div class="modal" id="signInModal" aria-hidden="true"></div>
 
   <main class="page">
     <div class="page-heading">
-      <p class="eyebrow">TRAVEL SUPPORT</p>
-      <h1>How can we <em>help?</em></h1>
-      <p>Find a quick answer or get in touch with a travel support specialist.</p>
+      <p class="eyebrow">24x7 TRAVEL ASSISTANCE</p>
+      <h1>How can we <em>help you?</em></h1>
+      <p>Instant answers, dedicated customer support tickets, and live WhatsApp assistance for your train journeys.</p>
     </div>
+
+    <!-- Quick Support Navigation Grid -->
     <section class="help-grid">
-      <a href="book.html"><span>⌁</span><h2>Booking & payments</h2><p>Questions about ticket booking, cancellation or refunds.</p><b>Explore →</b></a>
-      <a href="track.html"><span>◉</span><h2>Train status</h2><p>Track a train by its number or name and see live updates.</p><b>Explore →</b></a>
-      <a href="pnr.html"><span>✓</span><h2>PNR status</h2><p>Check ticket confirmation, coach and journey details by PNR.</p><b>Explore →</b></a>
-      <a href="mailto:support@example.com"><span>?</span><h2>Contact support</h2><p>Write to us and get help with an existing booking.</p><b>Send message →</b></a>
+      <a href="book.html"><span>⌁</span><h2>Booking & payments</h2><p>Questions about ticket booking, payment gateways or promo codes.</p><b>Explore →</b></a>
+      <a href="track.html"><span>◉</span><h2>Live train status</h2><p>Track your train live with station halts, speed and platform alerts.</p><b>Explore →</b></a>
+      <a href="pnr.html"><span>✓</span><h2>PNR & berth status</h2><p>Check ticket confirmation, allocated coach/berth and charting status.</p><b>Explore →</b></a>
+      <div class="help-card-btn" id="openSupportModalCard" role="button" tabindex="0">
+        <span>💬</span>
+        <h2>Contact support</h2>
+        <p>Raise a priority ticket or chat with a live IRCTC travel specialist.</p>
+        <b style="color:var(--orange);">Open ticket ➔</b>
+      </div>
+    </section>
+
+    <!-- 24x7 Direct Helplines Strip -->
+    <section style="margin: 36px 0; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 24px;">
+      <div style="margin-bottom: 16px;">
+        <p class="eyebrow" style="margin-bottom: 4px;">DIRECT CHANNELS</p>
+        <h3 style="margin: 0; font-size: 18px; color: var(--deep);">24x7 Customer Support Channels</h3>
+      </div>
+      <div class="support-channels-grid">
+        <div class="support-channel-item">
+          <div class="channel-icon">📞</div>
+          <div>
+            <b>RailYatri Toll-Free Helpline</b>
+            <span>1800-102-5544 (Toll-Free, 24x7)</span>
+          </div>
+        </div>
+        <div class="support-channel-item">
+          <div class="channel-icon" style="background:#e6f6ee; color:#1d794e;">💬</div>
+          <div>
+            <b>WhatsApp Live Assistant</b>
+            <a href="https://api.whatsapp.com/send?text=Hi%20RailYatri%20Support,%20I%20need%20help%20with%20my%20train%20booking." target="_blank" style="color:#1d794e; text-decoration:none; font-weight:700;">+91 9876543210 (Instant Chat)</a>
+          </div>
+        </div>
+        <div class="support-channel-item">
+          <div class="channel-icon" style="background:#fff3cd; color:#856404;">🚆</div>
+          <div>
+            <b>Indian Railways Official Helpline</b>
+            <span>Dial 139 (Security & Medical Aid)</span>
+          </div>
+        </div>
+        <div class="support-channel-item">
+          <div class="channel-icon">✉️</div>
+          <div>
+            <b>Email Support</b>
+            <span>support@railyatri.in (Avg reply: 15m)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive FAQs Accordion -->
+    <section style="margin-top: 36px;">
+      <div style="margin-bottom: 16px;">
+        <p class="eyebrow" style="margin-bottom: 4px;">FREQUENTLY ASKED QUESTIONS</p>
+        <h3 style="margin: 0; font-size: 20px; color: var(--deep);">Common Travel Questions</h3>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><b>How do I track my train directly from my bookings without typing PNR each time?</b></summary>
+          <div class="faq-content">
+            <p>Simply navigate to <b>"My trips"</b> in the top navigation. On your booked ticket card, click <b>"Track this train"</b>. The train tracker will automatically load your journey, current GPS location, upcoming station halts, and platform change alerts without requiring any manual entry!</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><b>How does Free Cancellation Guarantee work?</b></summary>
+          <div class="faq-content">
+            <p>When you opt for <b>Free Cancellation Guarantee</b> during booking (₹149/passenger), you receive a <b>100% full refund</b> of your ticket fare if cancelled up to 4 hours prior to chart preparation, with zero railway clerkage deductions.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><b>When is the final reservation chart prepared?</b></summary>
+          <div class="faq-content">
+            <p>As per Indian Railways guidelines, the first reservation chart is typically prepared <b>4 hours prior to scheduled train departure</b> from the originating station. For early morning trains (departing before 06:00 AM), the chart is prepared at 08:00 PM the previous evening.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><b>What should I do if my payment was deducted but ticket wasn't generated?</b></summary>
+          <div class="faq-content">
+            <p>In rare banking timeout events, transactions are automatically reconciled by IRCTC and banking gateways within 2 hours. If a PNR was not allotted, your full amount is automatically refunded to your original payment method within 24–48 hours.</p>
+          </div>
+        </details>
+      </div>
     </section>
   </main>
 
@@ -42,5 +129,6 @@
     <span>© 2026</span>
   </footer>
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>

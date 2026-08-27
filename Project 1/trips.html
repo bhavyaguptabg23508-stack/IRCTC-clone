@@ -16,30 +16,52 @@
       <a href="book.html">Book ticket</a>
       <a href="track.html">Track train</a>
       <a href="pnr.html">PNR status</a>
+      <a href="food.html">Food on train</a>
       <a class="active" href="trips.html">My trips</a>
       <a href="help.html">Help</a>
     </nav>
-    <button class="profile">Sign in <span>→</span></button>
+    <button class="profile" id="signInBtn">Sign in <span>→</span></button>
   </header>
 
   <main class="page">
     <div class="page-heading">
       <p class="eyebrow">YOUR TRAVEL SPACE</p>
       <h1>Trips in one <em>place.</em></h1>
-      <p>Find upcoming journeys, past bookings, and useful trip actions.</p>
+      <p>Find upcoming journeys, past bookings, and 1-click live train tracking.</p>
     </div>
-    <section class="trip-card">
-      <div class="trip-top">
-        <div><p class="eyebrow">UPCOMING · 04 SEP 2026</p><h2>New Delhi <span>→</span> Mumbai Central</h2><p>12952 · Mumbai Rajdhani · AC 3 Tier</p></div>
-        <span class="status">Confirmed</span>
-      </div>
-      <div class="trip-meta"><span><b>Departure</b>16:55 · New Delhi</span><span><b>Arrival</b>08:35 · Mumbai Central</span><span><b>Coach & seat</b>B4 · 28</span></div>
-      <div class="trip-actions">
-        <a class="outline-link" href="track.html">Track this train</a>
-        <a class="outline-link" href="pnr.html">View PNR status</a>
-        <button class="profile">View ticket →</button>
-      </div>
-    </section>
+    
+    <div id="tripsListContainer" style="display:flex; flex-direction:column; gap:20px;">
+      <!-- Default Active Journey Card -->
+      <section class="trip-card">
+        <div class="trip-top">
+          <div>
+            <p class="eyebrow">UPCOMING · 04 SEP 2026 · PNR: <b>2846159273</b></p>
+            <h2>New Delhi <span>→</span> Mumbai Central</h2>
+            <p>12952 · Mumbai Rajdhani Express · AC 3 Tier (3A)</p>
+          </div>
+          <span class="status">✓ Confirmed</span>
+        </div>
+        <div class="trip-meta">
+          <span><b>Departure</b>16:55 · New Delhi (NDLS) · Platform 1</span>
+          <span><b>Arrival</b>08:35 · Mumbai Central (MMCT)</span>
+          <span><b>Coach & Seat</b>Coach B4 · Seat 28 (Side Lower)</span>
+        </div>
+        <div class="trip-actions">
+          <a class="outline-link" style="background:#174998; color:#ffffff; border-color:#174998; display:inline-flex; align-items:center; gap:6px;" href="track.html?pnr=2846159273&train=12952">
+            <span>🚆</span> Track this train (Live)
+          </a>
+          <a class="outline-link" href="pnr.html?pnr=2846159273">
+            <span>📋</span> View PNR status
+          </a>
+          <a class="outline-link" href="food.html">
+            <span>🍱</span> Order meals
+          </a>
+          <a class="outline-link" style="margin-left:auto; background:var(--paper);" href="pnr.html?pnr=2846159273">
+            <span>🎫</span> View E-Ticket →
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
@@ -48,5 +70,6 @@
     <span>© 2026</span>
   </footer>
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>

@@ -16,10 +16,11 @@
       <a href="book.html">Book ticket</a>
       <a class="active" href="track.html">Track train</a>
       <a href="pnr.html">PNR status</a>
+      <a href="food.html">Food on train</a>
       <a href="trips.html">My trips</a>
       <a href="help.html">Help</a>
     </nav>
-    <button class="profile">Sign in <span>→</span></button>
+    <button class="profile" id="signInBtn">Sign in <span>→</span></button>
   </header>
 
   <main class="page tracker-page">
@@ -63,7 +64,11 @@
         </section>
         <div class="detail-grid">
           <section><p class="eyebrow" id="trackingDetailsHeading">TRAIN DETAILS</p><div class="ticket-lines" id="trackingDetails"><span>Train number <b>12952</b></span><span>Service <b>Daily · Superfast</b></span><span>Next stop <b>Ratlam Jn · 22:48</b></span></div></section>
-          <section><p class="eyebrow">TRAVEL ALERTS</p><div class="alert"><b>✓</b><span>No disruptions reported on this route.</span></div><button class="text-action" type="button">Set arrival reminder →</button></section>
+          <section>
+            <p class="eyebrow">TRAVEL ALERTS</p>
+            <div class="alert" id="travelAlertBox"><b>✓</b><span>No disruptions reported on this route.</span></div>
+            <button class="text-action" id="setArrivalReminderBtn" type="button">Set arrival reminder →</button>
+          </section>
         </div>
         <div class="result-details"><span><b>Current location</b> Near Kota Jn</span><span><b>Next stop</b> Ratlam Jn · 22:48</span><span><b>Platform</b> 4 (expected)</span></div>
       </div>
@@ -76,5 +81,6 @@
     <span>© 2026</span>
   </footer>
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>

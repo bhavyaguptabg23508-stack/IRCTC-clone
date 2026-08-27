@@ -16,52 +16,159 @@
       <a href="book.html">Book ticket</a>
       <a href="track.html">Track train</a>
       <a class="active" href="pnr.html">PNR status</a>
+      <a href="food.html">Food on train</a>
       <a href="trips.html">My trips</a>
       <a href="help.html">Help</a>
     </nav>
-    <button class="profile">Sign in <span>→</span></button>
+    <button class="profile" id="signInBtn">Sign in <span>→</span></button>
   </header>
+
+  <!-- Sign-In Modal -->
+  <div class="modal" id="signInModal" aria-hidden="true">
+    <div class="modal-content">
+      <h2>Sign In</h2>
+      <form id="signInForm">
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" name="userName" required />
+        <button type="submit" class="primary-btn">Continue<span>→</span></button>
+      </form>
+      <button class="close-modal" id="closeModalBtn">✖</button>
+    </div>
+  </div>
 
   <main class="page tracker-page">
     <div class="page-heading">
-      <p class="eyebrow">PNR JOURNEY STATUS</p>
+      <p class="eyebrow">IRCTC PASSENGER RESERVATION INQUIRY</p>
       <h1>Check your <em>PNR status.</em></h1>
-      <p>Enter your 10-digit PNR number to see your ticket, journey and live train updates.</p>
+      <p>Enter your 10-digit PNR number printed on your ticket or received via SMS to view current passenger & berth confirmation.</p>
     </div>
+    
     <section class="tracker-panel">
-      <form class="tracking-form" id="trackingForm">
-        <label class="track-input"><span id="inputLabel">Enter your 10-digit PNR number</span><input id="trackingInput" inputmode="numeric" placeholder="e.g. 284 615 9273" maxlength="14" required /></label>
-        <button class="dark-btn" type="submit">Check status <span>→</span></button>
+      <form class="tracking-form" id="pnrInquiryForm">
+        <label class="track-input">
+          <span>Enter 10-digit Indian Railways PNR</span>
+          <input id="pnrNumberInput" inputmode="numeric" placeholder="e.g. 284 615 9273" maxlength="12" value="2846159273" required />
+        </label>
+        <button class="dark-btn" type="submit">Check PNR status <span>→</span></button>
       </form>
-      <p class="helper" id="trackingHint">Try 2846159273 to view this prototype's live status.</p>
+      <p class="helper" id="pnrHint">Try <b>2846159273</b> to view real-time reservation and confirmation status.</p>
 
-      <div class="tracking-result hidden" id="trackingResult" aria-live="polite">
-        <div class="result-head">
-          <div><p class="eyebrow">YOUR JOURNEY</p><h3>12952 · Mumbai Rajdhani</h3><p>New Delhi <span>→</span> Mumbai Central</p></div>
-          <span class="status">Running on time</span>
+      <!-- Dedicated PNR Inquiry Result Card -->
+      <div class="pnr-result-card hidden" id="pnrStatusCard" aria-live="polite">
+        <div class="pnr-header-strip">
+          <div class="pnr-header-title">
+            <h3>PNR: <span id="displayPnrNumber">2846159273</span></h3>
+            <p>12952 / Mumbai Rajdhani Express · Indian Railways IRCTC</p>
+          </div>
+          <div class="pnr-meta-pills">
+            <span class="pnr-tag">Quota: General (GN)</span>
+            <span class="pnr-tag">Class: AC 3 Tier (3A)</span>
+            <button type="button" class="pnr-copy-btn" id="pnrCopyActionBtn">📋 Copy PNR</button>
+          </div>
         </div>
-        <div class="live-strip"><span class="pulse"></span><b>Live location</b><span>Near Kota Junction · Updated 2 min ago</span><button id="refreshStatus" type="button">Refresh</button></div>
-        <div class="tracker-stats">
-          <div><small>Journey covered</small><b>42%</b><span>582 of 1,384 km</span></div>
-          <div><small>Current speed</small><b>86 <em>km/h</em></b><span>Normal operating speed</span></div>
-          <div><small>Estimated arrival</small><b>08:35 <em>AM</em></b><span>Tomorrow · on time</span></div>
+
+        <div class="chart-status-banner chart-prepared">
+          <span class="chart-status-badge"><span>✓</span> <b>Chart Prepared</b> — Final reservation chart prepared at New Delhi (NDLS)</span>
+          <span>Updated just now</span>
         </div>
-        <section class="route-card">
-          <div class="route-card-head"><div><p class="eyebrow">ROUTE & STOP UPDATES</p><h4>New Delhi → Mumbai Central</h4></div><span>Next stop in 2h 26m</span></div>
-          <ol class="station-timeline">
-            <li class="complete"><time>16:55</time><div><b>New Delhi</b><small>Departed on time · Platform 1</small></div></li>
-            <li class="complete"><time>18:48</time><div><b>Mathura Jn</b><small>Arrived 18:43 · departed 18:48</small></div></li>
-            <li class="current"><time>20:22</time><div><b>Kota Jn <span class="tiny-live">LIVE</span></b><small>Passing now · 0 min delay</small></div></li>
-            <li><time>22:48</time><div><b>Ratlam Jn</b><small>Expected platform 4 · 5 min halt</small></div></li>
-            <li><time>01:16</time><div><b>Vadodara Jn</b><small>Expected platform 1 · 10 min halt</small></div></li>
-            <li><time>08:35</time><div><b>Mumbai Central</b><small>Expected arrival · Platform to be announced</small></div></li>
-          </ol>
-        </section>
-        <div class="detail-grid">
-          <section><p class="eyebrow">YOUR TICKET</p><div class="ticket-lines"><span>PNR <b>2846159273</b></span><span>Coach & seat <b>B4 · 28 · Side lower</b></span><span>Booking status <b class="confirmed">Confirmed</b></span></div></section>
-          <section><p class="eyebrow">TRAVEL ALERTS</p><div class="alert"><b>✓</b><span>No disruptions reported on this route.</span></div><button class="text-action" type="button">Set arrival reminder →</button></section>
+
+        <div class="pnr-body">
+          <!-- Journey Meta Grid -->
+          <div class="pnr-journey-grid">
+            <div class="pnr-cell">
+              <span>Train Number & Name</span>
+              <b>12952 · Mumbai Rajdhani</b>
+              <small>Daily · Superfast Premium</small>
+            </div>
+            <div class="pnr-cell">
+              <span>Date of Journey</span>
+              <b>04 Sep 2026</b>
+              <small>Departure: 16:55 Hrs</small>
+            </div>
+            <div class="pnr-cell">
+              <span>Boarding Station</span>
+              <b>New Delhi (NDLS)</b>
+              <small>Platform 1 · Scheduled</small>
+            </div>
+            <div class="pnr-cell">
+              <span>Destination Station</span>
+              <b>Mumbai Central (MMCT)</b>
+              <small>Arrival: 08:35 (+1 day)</small>
+            </div>
+          </div>
+
+          <!-- Passenger Status Table -->
+          <div class="section-subhead">
+            <h3><span>💺</span> Passenger Reservation & Berth Details</h3>
+            <span class="subhead-hint">2 Passengers booked</span>
+          </div>
+
+          <div class="passenger-table-wrapper">
+            <table class="pnr-passengers-table">
+              <thead>
+                <tr>
+                  <th>Passenger</th>
+                  <th>Booking Status</th>
+                  <th>Current Status</th>
+                  <th>Coach & Berth</th>
+                  <th>Berth Type</th>
+                  <th>Catering</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>Passenger 1 (Adult)</b><br /><small style="color:var(--muted);">Aarav Sharma · 28 yrs / M</small></td>
+                  <td><span class="status-pill-cnf">CNF / B4 / 28</span></td>
+                  <td><span class="status-pill-cnf">✓ Confirmed</span></td>
+                  <td><b>Coach B4 · Seat 28</b></td>
+                  <td>Side Lower (SL)</td>
+                  <td>Veg Standard Thali</td>
+                </tr>
+                <tr>
+                  <td><b>Passenger 2 (Adult)</b><br /><small style="color:var(--muted);">Priya Sharma · 26 yrs / F</small></td>
+                  <td><span class="status-pill-wl">RLWL / 8</span></td>
+                  <td><span class="status-pill-cnf">✓ Confirmed (Upgraded)</span></td>
+                  <td><b>Coach B4 · Seat 29</b></td>
+                  <td>Side Upper (SU)</td>
+                  <td>Veg Standard Thali</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Ticket & Fare Meta -->
+          <div class="pnr-ticket-meta">
+            <div>
+              <b style="color:var(--deep); display:block; margin-bottom:4px;">Booking & Transaction Details:</b>
+              <span>Booking Date: <b>25 Aug 2026</b> · Transaction ID: <b>TXN-84920482</b> · IRCTC User: <b>aarav_rail99</b></span>
+              <p style="margin:4px 0 0; color:var(--muted); font-size:11px;">Travel Insurance: Opted (Policy #IND-84921) · Free Cancellation: Inactive</p>
+            </div>
+            <div style="text-align:right;">
+              <span style="color:var(--muted); display:block;">Total Ticket Fare:</span>
+              <b style="font-size:18px; color:#1d794e;">₹ 6,240.00</b>
+              <small style="display:block; color:var(--muted);">Payment Method: UPI (Verified)</small>
+            </div>
+          </div>
+
+          <!-- Quick Action Shortcuts -->
+          <div class="pnr-actions-bar">
+            <button type="button" class="btn-ticket-action btn-ticket-primary" id="pnrPrintBtn">
+              <span>🖨️</span> Print / Save E-Ticket
+            </button>
+            <a href="food.html" class="btn-ticket-action btn-ticket-secondary">
+              <span>🍱</span> Order Meals on Train
+            </a>
+            <a href="track.html" class="btn-ticket-action btn-ticket-secondary">
+              <span>🚆</span> Track Train Location
+            </a>
+            <button type="button" class="btn-ticket-action btn-ticket-whatsapp" id="pnrShareWaBtn">
+              <span>💬</span> Share on WhatsApp
+            </button>
+            <button type="button" class="flow-back" id="pnrCancelRuleBtn" style="padding:10px 14px; font-size:12px;">
+              <span>❌</span> Cancel Ticket / Refund Info
+            </button>
+          </div>
         </div>
-        <div class="result-details"><span><b>Coach</b> B4 · Seat 28</span><span><b>Next stop</b> Ratlam Jn · 22:48</span><span><b>Platform</b> 4 (expected)</span></div>
       </div>
     </section>
   </main>
@@ -72,5 +179,7 @@
     <span>© 2026</span>
   </footer>
   <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 </html>
+
