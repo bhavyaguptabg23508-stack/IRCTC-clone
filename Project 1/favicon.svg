@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <g fill="#004c99">
+    <!-- Pin loop top -->
+    <path d="M 68,14 C 79,14 88,22 88,33 C 88,41 83,49 76,57 L 72,52 C 78,45 82,39 82,33 C 82,25 75,19 68,19 C 61,19 55,25 55,33 C 55,36 56,39 58,42 L 53,46 C 50,42 49,38 49,33 C 49,22 57,14 68,14 Z" />
+    
+    <!-- Bold Checkmark / Arrow forming the pin body -->
+    <path d="M 44,48 L 57,63 L 90,18 L 84,18 L 57,55 L 48,44 Z" />
+    <path d="M 57,66 L 40,46 L 47,40 L 57,52 L 87,14 L 94,20 Z" />
+
+    <!-- Curved Train Rails -->
+    <!-- Outer Arc -->
+    <path d="M 12,65 C 14,46 30,30 52,26 L 51,31 C 33,35 19,48 18,65 Z" />
+    <!-- Inner Arc -->
+    <path d="M 20,70 C 23,55 36,43 54,39 L 53,44 C 38,48 28,58 26,70 Z" />
+
+    <!-- Railway Sleepers / Ties -->
+    <polygon points="10,63 10,68 22,68 22,63" />
+    <polygon points="11,54 12,59 25,57 24,52" />
+    <polygon points="14,45 16,50 29,46 27,41" />
+    <polygon points="19,37 22,41 35,35 32,31" />
+    <polygon points="26,30 30,33 42,25 38,22" />
+    <polygon points="36,24 40,26 50,17 46,15" />
+  </g>
+</svg>

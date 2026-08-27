@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" width="240" height="180">
+  <g fill="#004c99">
+    <!-- Pin loop top -->
+    <path d="M 136,28 C 158,28 176,44 176,66 C 176,82 166,98 152,114 L 144,104 C 156,90 164,78 164,66 C 164,50 150,38 136,38 C 122,38 110,50 110,66 C 110,72 112,78 116,84 L 106,92 C 100,84 98,76 98,66 C 98,44 114,28 136,28 Z" />
+    
+    <!-- Bold Checkmark forming pin base -->
+    <path d="M 114,132 L 80,92 L 94,80 L 114,104 L 174,28 L 188,40 Z" />
+
+    <!-- Curved Train Rails -->
+    <!-- Outer Arc -->
+    <path d="M 24,130 C 28,92 60,60 104,52 L 102,62 C 66,70 38,96 36,130 Z" />
+    <!-- Inner Arc -->
+    <path d="M 40,140 C 46,110 72,86 108,78 L 106,88 C 76,96 56,116 52,140 Z" />
+
+    <!-- Railway Sleepers / Ties -->
+    <polygon points="20,126 20,136 44,136 44,126" />
+    <polygon points="22,108 24,118 50,114 48,104" />
+    <polygon points="28,90 32,100 58,92 54,82" />
+    <polygon points="38,74 44,82 70,70 64,62" />
+    <polygon points="52,60 60,66 84,50 76,44" />
+    <polygon points="72,48 80,52 100,34 92,30" />
+    
+    <!-- RailYatri Typography -->
+    <text x="120" y="168" font-family="'DM Sans', 'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700" text-anchor="middle" letter-spacing="-0.5">RailYatri</text>
+  </g>
+</svg>
